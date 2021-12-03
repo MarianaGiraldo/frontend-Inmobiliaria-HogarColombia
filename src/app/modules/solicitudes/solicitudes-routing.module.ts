@@ -15,7 +15,7 @@ const routes: Routes = [
     component: SolicitudEditionComponent
   },
   {
-    path:"solicitud-list",
+    path:"solicitudes-list",
     component: SolicitudListComponent
   },
   {

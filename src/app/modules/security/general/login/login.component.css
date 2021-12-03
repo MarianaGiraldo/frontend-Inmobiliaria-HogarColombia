@@ -1,0 +1,26 @@
+.errorValidation label{
+    color: red;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #1976d2;
+}
+  /* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #1976d2;
+    box-shadow: 0 1px 0 0 #1976d2;
+}
+
+/* label focus color */
+.input-field input[type=password]:focus + label {
+    color: #1976d2;
+}
+  /* label underline focus color */
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #1976d2;
+    box-shadow: 0 1px 0 0 #1976d2;
+}

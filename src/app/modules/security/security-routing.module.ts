@@ -35,13 +35,13 @@ const routes: Routes = [
     component: UserEditionComponent
   },
   {
-    path:"user-list",
+    path:"users-list",
     component: UserListComponent
   },
   {
     path:"remove-user",
     component: RemoveUserComponent
-  },
+  }
 ];
 
 @NgModule({

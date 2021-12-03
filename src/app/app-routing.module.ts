@@ -5,27 +5,21 @@ import { HomeComponent } from './public/general/home/home.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent,
+    path: "home",
+    component: HomeComponent
   },
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/home',
+    path: "",
+    pathMatch: "full",
+    redirectTo: "/home"
   },
   {
-    path: 'security',
-    loadChildren: () =>
-      import('./modules/security/security.module').then(
-        (x) => x.SecurityModule
-      ),
+    path: "security",
+    loadChildren: () => import("./modules/security/security.module").then(x => x.SecurityModule)
   },
   {
-    path: 'parameters',
-    loadChildren: () =>
-      import('./modules/parameters/parameters.module').then(
-        (x) => x.ParametersModule
-      ),
+    path: "parameters",
+    loadChildren: () => import("./modules/parameters/parameters.module").then(x => x.ParametersModule)
   },
   {
     path: 'solicitudes',
