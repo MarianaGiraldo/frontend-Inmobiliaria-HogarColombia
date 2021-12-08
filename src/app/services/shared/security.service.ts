@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { SessionDataModel } from 'src/app/models/security/session-data.model';
 import { ConfigurationData } from '../../config/ConfigurationData';
 import { UserCredentialsModel } from '../../models/security/user-credentials.model';
+import { LocalStorageService } from './local-storage.service';
 // import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
@@ -15,29 +16,29 @@ export class SecurityService {
   url: string = ConfigurationData.SECURITY_MS_URL;
 
   constructor(
-    private http: HttpClient){}
-    // private localStorageService: LocalStorageService) {
-    //   this.VerifyActiveSession();
-    // }
+    private http: HttpClient,
+    private localStorageService: LocalStorageService) {
+      this.VerifyActiveSession();
+    }
 
-  // VerifyActiveSession(): boolean {
-  //   let info = this.localStorageService.GetSessionInfo();
-  //   if (info.tk) {
-  //     info.isLoggedIn = true;
-  //     this.RefreshSessionInfo(info);
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  VerifyActiveSession(): boolean {
+    let info = this.localStorageService.GetSessionInfo();
+    if (info.tk) {
+      info.isLoggedIn = true;
+      this.RefreshSessionInfo(info);
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-  // RefreshSessionInfo(data: SessionDataModel){
-  //   this.sessionInfoSubject.next(data);
-  // }
+  RefreshSessionInfo(data: SessionDataModel){
+    this.sessionInfoSubject.next(data);
+  }
 
-  // GetSessionInfo(){
-  //   return this.sessionInfoSubject.asObservable();
-  // }
+  GetSessionInfo(){
+    return this.sessionInfoSubject.asObservable();
+  }
 
   Login(data: UserCredentialsModel): Observable<SessionDataModel> {
     return this.http.post<SessionDataModel>(`${this.url}/identificar-usuario`, {

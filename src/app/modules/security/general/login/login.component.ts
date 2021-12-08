@@ -6,6 +6,7 @@ import { SessionDataModel } from 'src/app/models/security/session-data.model';
 import { UserCredentialsModel } from 'src/app/models/security/user-credentials.model';
 import { SecurityService } from 'src/app/services/shared/security.service';
 import {MD5} from 'crypto-js';
+import { LocalStorageService } from 'src/app/services/shared/local-storage.service';
 declare const ShowGeneralMessage: any;
 
 @Component({
@@ -15,13 +16,13 @@ declare const ShowGeneralMessage: any;
 })
 export class LoginComponent implements OnInit {
   dataForm: FormGroup = new FormGroup({});
-  localStorageService: any;
-  router: any;
 
   constructor(
     private fb: FormBuilder,
-    private securityService: SecurityService
-  ) // private router: Router
+    private securityService: SecurityService,
+    private localStorageService: LocalStorageService,
+    private router: Router
+  ) 
   {}
 
   ngOnInit(): void {
@@ -59,14 +60,14 @@ export class LoginComponent implements OnInit {
       this.securityService.Login(credentials).subscribe({
         next: (data: SessionDataModel) => {
           console.log(data);
-          // if (data.tk != '' && data.usuario != null) {
-          //   let saved = this.localStorageService.SaveSessionData(data);
-          //   data.isLoggedIn = true;
-          //   this.securityService.RefreshSessionInfo(data);
-          //   this.router.navigate(['/home']);
-          // } else {
-          //   ShowGeneralMessage(ConfigurationData.LOGIN_DATA_INVALID);
-          // }
+          if (data.tk != '' && data.usuario != null) {
+            let saved = this.localStorageService.SaveSessionData(data);
+            data.isLoggedIn = true;
+            this.securityService.RefreshSessionInfo(data);
+            this.router.navigate(['/home']);
+          } else {
+            ShowGeneralMessage(ConfigurationData.LOGIN_DATA_INVALID);
+          }
         },
         error: (error: any) => {
           console.log(error.message)
