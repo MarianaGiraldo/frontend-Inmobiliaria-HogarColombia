@@ -1,10 +1,10 @@
 export class InmuebleModel{
-    id?: number;
+    id?: string;
     asesorId?: string;
     departamento?: string;
     ciudad?: string;
     direccion?: string;
-    valor?: string;
+    valor?: number;
     tipo?: string;
     tipoOferta?: string;
     encargado?: string;

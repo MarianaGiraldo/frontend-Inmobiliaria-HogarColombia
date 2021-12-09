@@ -28,16 +28,37 @@ export class InmuebleService {
   SaveRecord(data: InmuebleModel): Observable<InmuebleModel> {
     return this.http.post<InmuebleModel>(`${this.url}/inmuebles`,
       {
-        id: data.id,
-        valor: data.valor
+        asesorId: data.asesorId,
+        departamento: data.departamento,
+        ciudad: data.ciudad,
+        direccion: data.direccion,
+        valor: data.valor,
+        tipo: data.tipo,
+        tipoOferta: data.tipoOferta ,
+        encargado: data.encargado,
+        encargadoContacto: data.encargadoContacto,
+        videoUrl: data.videoUrl
+      }, 
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.tk}`
+        })
       });
   }
 
   EditRecord(data: InmuebleModel): Observable<InmuebleModel> {
     return this.http.put<InmuebleModel>(`${this.url}/inmuebles/${data.id}`,
       {
-        id: data.id,
-        valor: data.valor
+        asesorId: data.asesorId,
+        departamento: data.departamento,
+        ciudad: data.ciudad,
+        direccion: data.direccion,
+        valor: data.valor,
+        tipo: data.tipo,
+        tipoOferta: data.tipoOferta ,
+        encargado: data.encargado,
+        encargadoContacto: data.encargadoContacto,
+        videoUrl: data.videoUrl
       });
   }
   

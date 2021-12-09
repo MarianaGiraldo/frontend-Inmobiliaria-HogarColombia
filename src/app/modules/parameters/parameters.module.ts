@@ -15,7 +15,7 @@ import { ClienteCreationComponent } from './clientes/cliente-creation/cliente-cr
 import { ClienteEditionComponent } from './clientes/cliente-edition/cliente-edition.component';
 import { ClienteListComponent } from './clientes/cliente-list/cliente-list.component';
 import { RemoveClienteComponent } from './clientes/remove-cliente/remove-cliente.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     InmuebleCreationComponent,
@@ -34,7 +34,9 @@ import { RemoveClienteComponent } from './clientes/remove-cliente/remove-cliente
   ],
   imports: [
     CommonModule,
-    ParametersRoutingModule
+    ParametersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ParametersModule { }

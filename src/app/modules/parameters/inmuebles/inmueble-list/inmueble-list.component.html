@@ -1,14 +1,12 @@
 <br />
-<a routerLink="/parameters/inmueble-creation" class="btn btn-success">Agregar Inmueble</a>
-
+<a routerLink="/parameters/inmueble-creation" class="btn btn-success mb-5">Agregar Inmueble</a>
+<br/><br/>
 <fieldset>
     <legend>Listado de Inmuebles</legend>
+    <br/>
     <table>
         <thead>
             <tr>
-                <th>
-                    Id
-                </th>
                 <th>
                     Tipo de oferta
                 </th>
@@ -25,9 +23,6 @@
                     Valor
                 </th>
                 <th>
-                    Asesor
-                </th>
-                <th>
                     Encargado o Dueño
                 </th>
                 <th>
@@ -38,9 +33,6 @@
         <tbody>
             <tr *ngFor="let r of recordList">
                 <!--  | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: totalAmount } -->
-                <td>
-                    {{r.id}}
-                </td>
                 <td>
                     {{r.tipoOferta}}
                 </td>
@@ -55,9 +47,6 @@
                 </td>
                 <td>
                     {{r.valor}}
-                </td>
-                <td>
-                    {{r.asesorId}}
                 </td>
                 <td>
                     {{r.encargado}}
