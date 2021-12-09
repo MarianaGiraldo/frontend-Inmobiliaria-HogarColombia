@@ -1,1 +1,87 @@
-<p>inmueble-list works!</p>
+<br />
+<a routerLink="/parameters/inmueble-creation" class="btn btn-success">Agregar Inmueble</a>
+
+<fieldset>
+    <legend>Listado de Inmuebles</legend>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Tipo de oferta
+                </th>
+                <th>
+                    Tipo de inmueble
+                </th>
+                <th>
+                    Departamento
+                </th>
+                <th>
+                    Ciudad
+                </th>
+                <th>
+                    Valor
+                </th>
+                <th>
+                    Asesor
+                </th>
+                <th>
+                    Encargado o Dueño
+                </th>
+                <th>
+                    Video
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of recordList">
+                <!--  | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: totalAmount } -->
+                <td>
+                    {{r.id}}
+                </td>
+                <td>
+                    {{r.tipoOferta}}
+                </td>
+                <td>
+                    {{r.tipo}}
+                </td>
+                <td>
+                    {{r.departamento}}
+                </td>
+                <td>
+                    {{r.ciudad}}
+                </td>
+                <td>
+                    {{r.valor}}
+                </td>
+                <td>
+                    {{r.asesorId}}
+                </td>
+                <td>
+                    {{r.encargado}}
+                </td>
+                <td>
+                    {{r.videoUrl}}
+                </td>
+                <!-- <td>
+                    <ul>
+                        <li *ngFor="let c of r.categorias">{{c.nombre}}</li>
+                    </ul>
+                </td> -->
+                <td>
+                    <a routerLink="/parameters/inmueble-edition/{{r.id}}" class="btn btn-warning orange">Editar</a>&nbsp;
+                    <a routerLink="/parameters/remove-inmueble/{{r.id}}" class="btn btn-warning red">Eliminar</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <!-- <pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
+                    nextLabel="Siguiente"></pagination-controls> -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+
