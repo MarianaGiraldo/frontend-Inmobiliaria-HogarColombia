@@ -29,7 +29,6 @@ export class InmuebleCreationComponent implements OnInit {
 
   FormBuilding() {
     this.dataForm = this.fb.group({
-      asesorId: ["", [Validators.required]],
       departamento: ["", [Validators.required]],
       ciudad: ["", [Validators.required]],
       direccion: ["", [Validators.required]],
@@ -49,7 +48,6 @@ export class InmuebleCreationComponent implements OnInit {
 
   SaveRecord(){
     let model = new InmuebleModel();
-      model.asesorId = this.GetDF["asesorId"].value;
       model.departamento = this.GetDF["departamento"].value;
       model.ciudad = this.GetDF["ciudad"].value;
       model.direccion = this.GetDF["direccion"].value;

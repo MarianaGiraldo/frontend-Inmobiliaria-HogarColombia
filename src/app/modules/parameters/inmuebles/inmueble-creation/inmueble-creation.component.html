@@ -4,30 +4,7 @@
   <br />
   <div class="row">
     <form class="col s12" [formGroup]="dataForm">
-      <div class="row">
-        <div class="input-field col s12">
-          <input
-            formControlName="asesorId"
-            class="validate"
-            type="text"
-            name="asesorId"
-            id="asesorId"
-          />
-          <label for="asesorId">Asesor Id</label>
-          <div class="errorValidation">
-            <label
-              *ngIf="
-                GetDF['asesorId'].errors &&
-                (dataForm.controls['asesorId'].dirty ||
-                  dataForm.controls['asesorId'].touched)
-              "
-            >
-              El id del asesor es requerido
-            </label>
-          </div>
-        </div>
-      </div>
-
+      
       <div class="row">
         <div class="input-field col s6">
           <input
@@ -249,7 +226,6 @@
         <div class="input-field col s12">
           <button
             [disabled]="
-              GetDF['asesorId'].errors ||
               GetDF['departamento'].errors ||
               GetDF['ciudad'].errors ||
               GetDF['direccion'].errors ||

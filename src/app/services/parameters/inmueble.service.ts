@@ -28,7 +28,7 @@ export class InmuebleService {
   SaveRecord(data: InmuebleModel): Observable<InmuebleModel> {
     return this.http.post<InmuebleModel>(`${this.url}/inmuebles`,
       {
-        asesorId: data.asesorId,
+        asesorId: this.localStorageService.GetSessionInfo().usuario?.id,
         departamento: data.departamento,
         ciudad: data.ciudad,
         direccion: data.direccion,

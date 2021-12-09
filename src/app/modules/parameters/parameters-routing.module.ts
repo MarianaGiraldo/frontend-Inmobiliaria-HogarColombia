@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AsesorCreationComponent } from './asesores/asesor-creation/asesor-creation.component';
-import { AsesorEditionComponent } from './asesores/asesor-edition/asesor-edition.component';
-import { AsesorListComponent } from './asesores/asesor-list/asesor-list.component';
-import { RemoveAsesorComponent } from './asesores/remove-asesor/remove-asesor.component';
 import { ClienteCreationComponent } from './clientes/cliente-creation/cliente-creation.component';
 import { ClienteEditionComponent } from './clientes/cliente-edition/cliente-edition.component';
 import { ClienteListComponent } from './clientes/cliente-list/cliente-list.component';
@@ -19,7 +15,7 @@ const routes: Routes = [
     component: InmuebleCreationComponent
   },
   {
-    path:"inmueble-edition",
+    path:"inmueble-edition/:id",
     component: InmuebleEditionComponent
   },
   {
@@ -27,31 +23,15 @@ const routes: Routes = [
     component: InmuebleListComponent
   },
   {
-    path:"remove-inmueble",
+    path:"remove-inmueble/:id",
     component: RemoveInmuebleComponent
-  },
-  {
-    path:"asesor-creation",
-    component: AsesorCreationComponent
-  },
-  {
-    path:"asesor-edition",
-    component: AsesorEditionComponent
-  },
-  {
-    path:"asesores-list",
-    component: AsesorListComponent
-  },
-  {
-    path:"remove-asesor",
-    component: RemoveAsesorComponent
   },
   {
     path:"cliente-creation",
     component: ClienteCreationComponent
   },
   {
-    path:"cliente-edition",
+    path:"cliente-edition/:id",
     component: ClienteEditionComponent
   },
   {
@@ -59,7 +39,7 @@ const routes: Routes = [
     component: ClienteListComponent
   },
   {
-    path:"remove-cliente",
+    path:"remove-cliente/:id",
     component: RemoveClienteComponent
   }
 ];
