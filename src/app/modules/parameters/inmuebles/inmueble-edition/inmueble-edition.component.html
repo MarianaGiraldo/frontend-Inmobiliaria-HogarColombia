@@ -1,1 +1,254 @@
-<p>inmueble-edition works!</p>
+<br />
+<fieldset>
+  <legend>Edición de Inmueble</legend>
+  <br />
+  <div class="row">
+    <form class="col s12" [formGroup]="dataForm">
+      <input type="hidden" formControlName="id" />
+      <div class="row">
+        <div class="input-field col s6">
+          <input
+            formControlName="departamento"
+            class="validate"
+            type="text"
+            name="departamento"
+            id="departamento"
+          />
+          <label for="departamento">Departamento</label>
+          <div class="errorValidation">
+            <label
+              *ngIf="
+                GetDF['departamento'].errors &&
+                (dataForm.controls['departamento'].dirty ||
+                  dataForm.controls['departamento'].touched)
+              "
+            >
+              El departamento es requerido
+            </label>
+          </div>
+        </div>
+
+        <div class="input-field col s6">
+          <input
+            formControlName="ciudad"
+            class="validate"
+            type="text"
+            name="ciudad"
+            id="ciudad"
+          />
+          <label for="ciudad">Ciudad</label>
+          <div class="errorValidation">
+            <label
+              *ngIf="
+                GetDF['ciudad'].errors &&
+                (dataForm.controls['ciudad'].dirty ||
+                  dataForm.controls['ciudad'].touched)
+              "
+            >
+              El campo ciudad es requerido
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            formControlName="direccion"
+            class="validate"
+            type="text"
+            name="direccion"
+            id="direccion"
+          />
+          <label for="direccion">Direccion</label>
+          <div class="errorValidation">
+            <label
+              *ngIf="
+                GetDF['direccion'].errors &&
+                (dataForm.controls['direccion'].dirty ||
+                  dataForm.controls['direccion'].touched)
+              "
+            >
+              El campo direccion es requerido
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input
+            formControlName="valor"
+            class="validate"
+            type="number"
+            name="valor"
+            id="valor"
+          />
+          <label for="valor">Valor</label>
+          <div class="errorValidation">
+            <label
+              *ngIf="
+                GetDF['valor'].errors &&
+                (dataForm.controls['valor'].dirty ||
+                  dataForm.controls['valor'].touched)
+              "
+            >
+              El campo valor es requerido y debe ser mayor a $10 000
+            </label>
+          </div>
+        </div>
+
+        <div class="input-field col s6">
+          <input
+            formControlName="videoUrl"
+            class="validate"
+            type="text"
+            name="videoUrl"
+            id="videoUrl"
+          />
+          <label for="videoUrl">URL de video</label>
+          <div class="errorValidation">
+            <label
+              *ngIf="
+                GetDF['videoUrl'].errors &&
+                (dataForm.controls['videoUrl'].dirty ||
+                  dataForm.controls['videoUrl'].touched)
+              "
+            >
+              El campo videoUrl es requerido
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s6">
+          <label for="tipo">Tipo de inmueble</label>
+          <select
+            class="browser-default validate"
+            formControlName="tipo"
+            name="tipo"
+            id="tipo"
+          >
+            <option value="" disabled selected>Seleccione el tipo</option>
+            <option value="Casa">Casa</option>
+            <option value="Apartamento">Apartamento</option>
+            <option value="Hipoteca">Habitación</option>
+          </select>
+          <div class="errorValidation">
+            <label
+              *ngIf="
+                GetDF['tipo'].errors &&
+                (dataForm.controls['tipo'].dirty ||
+                  dataForm.controls['tipo'].touched)
+              "
+            >
+              El campo tipo es requerido
+            </label>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <label for="tipo">Tipo de oferta</label>
+          <select
+            class="browser-default validate"
+            formControlName="tipoOferta"
+            name="tipoOferta"
+            id="tipoOferta"
+          >
+            <option value="" disabled selected>
+              Seleccione el tipo de oferta
+            </option>
+            <option value="Arriendo">Arriendo</option>
+            <option value="Venta">Venta</option>
+          </select>
+          <div class="errorValidation">
+            <label
+              *ngIf="
+                GetDF['tipoOferta'].errors &&
+                (dataForm.controls['tipoOferta'].dirty ||
+                  dataForm.controls['tipoOferta'].touched)
+              "
+            >
+              El tipo de oferta es requerido
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input
+            formControlName="encargado"
+            class="validate"
+            type="text"
+            name="encargado"
+            id="encargado"
+          />
+          <label for="encargado">Nombre del encargado</label>
+          <div class="errorValidation">
+            <label
+              *ngIf="
+                GetDF['encargado'].errors &&
+                (dataForm.controls['encargado'].dirty ||
+                  dataForm.controls['encargado'].touched)
+              "
+            >
+              El campo nombre Encargado es requerido
+            </label>
+          </div>
+        </div>
+
+        <div class="input-field col s6">
+          <input
+            formControlName="encargadoContacto"
+            class="validate"
+            type="text"
+            name="encargadoContacto"
+            id="encargadoContacto"
+          />
+          <label for="encargadoContacto">Celular del encargado</label>
+          <div class="errorValidation">
+            <label
+              *ngIf="
+                GetDF['encargadoContacto'].errors &&
+                (dataForm.controls['encargadoContacto'].dirty ||
+                  dataForm.controls['encargadoContacto'].touched)
+              "
+            >
+              El celular del encargado es requerido
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <button
+            [disabled]="
+              GetDF['departamento'].errors ||
+              GetDF['ciudad'].errors ||
+              GetDF['direccion'].errors ||
+              GetDF['valor'].errors ||
+              GetDF['tipo'].errors ||
+              GetDF['tipoOferta'].errors ||
+              GetDF['encargado'].errors ||
+              GetDF['encargadoContacto'].errors
+            "
+            type="button"
+            class="btn btn-success"
+            (click)="SaveRecord()"
+          >
+            Guardar
+          </button>
+          &nbsp;<a
+            class="btn btn-warning orange"
+            routerLink="/parameters/inmuebles-list"
+            >Cancelar</a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</fieldset>
+

@@ -21,7 +21,7 @@ export class InmuebleService {
     return this.http.get<InmuebleModel[]>(`${this.url}/inmuebles`);
   }
 
-  SearchRecord(id: number): Observable<InmuebleModel> {
+  SearchRecord(id: string): Observable<InmuebleModel> {
     return this.http.get<InmuebleModel>(`${this.url}/inmuebles/${id}`);
   }
 
@@ -59,6 +59,11 @@ export class InmuebleService {
         encargado: data.encargado,
         encargadoContacto: data.encargadoContacto,
         videoUrl: data.videoUrl
+      }, 
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.tk}`
+        })
       });
   }
   
