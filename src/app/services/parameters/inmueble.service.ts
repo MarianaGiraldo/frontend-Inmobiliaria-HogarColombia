@@ -68,7 +68,7 @@ export class InmuebleService {
   }
   
 
-  RemoveRecord(id: number): Observable<any> {
+  RemoveRecord(id: string): Observable<any> {
     return this.http.delete<any>(`${this.url}/inmuebles/${id}`);
   }
 

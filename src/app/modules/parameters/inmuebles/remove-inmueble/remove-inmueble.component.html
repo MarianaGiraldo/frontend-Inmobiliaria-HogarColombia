@@ -1,1 +1,47 @@
-<p>remove-inmueble works!</p>
+<div class="row">
+    <div class="row">
+        <div class="input-field col s12">
+
+            <strong>¿Está seguro(a) de eliminar el registro con la siguiente información?</strong>
+            <br />
+            <ul>
+                <li>
+                    Id: {{datos.id}}
+                </li>
+                <li>
+                    Departamento: {{datos.departamento}}
+                </li>
+                <li>
+                    Ciudad: {{datos.ciudad}}
+                </li>
+                <li>
+                    Direccion: {{datos.direccion}}
+                </li>
+                <li>
+                    Valor: {{datos.valor}}
+                </li>
+                <li>
+                    Tipo: {{datos.tipo}}
+                </li>
+                <li>
+                    Tipo de Oferta: {{datos.tipoOferta}}
+                </li>
+                <li>
+                    Encargado o dueño: {{datos.encargado}}
+                </li>
+                <li>
+                    Celular del encargado o dueño: {{datos.encargadoContacto}}
+                </li>
+                <li>
+                    URL del video: {{datos.videoUrl}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <button type="button" class="btn btn-success" (click)="RemoveRecord()">Confirmar</button>
+            &nbsp;<a class="btn btn-warning orange" routerLink="/parameters/brand-list">Cancelar</a>
+        </div>
+    </div>
+</div>
