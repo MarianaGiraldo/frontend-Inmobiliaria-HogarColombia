@@ -50,9 +50,9 @@ export class RemoveInmuebleComponent implements OnInit {
 
   RemoveRecord() {
     this.service.RemoveRecord(this.id).subscribe({
-      next: (data: any) => {
+      next: (_data: any) => {
         ShowGeneralMessage(ConfigurationData.REMOVED_MESSAGE);
-        this.router.navigate(['/parameters/inmueble-list']);
+        this.router.navigate(['/parameters/inmuebles-list']);
       },
     });
   }

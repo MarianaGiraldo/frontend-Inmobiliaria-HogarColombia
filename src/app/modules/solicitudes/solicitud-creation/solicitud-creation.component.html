@@ -1,1 +1,26 @@
-<p>solicitud-creation works!</p>
+<br />
+<fieldset>
+  <legend>Solicitud de Inmueble</legend>
+  <br />
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <strong>¿Está seguro(a) de solicitar este inmueble?</strong>
+          <br />
+        </div>
+        <div class="input-field col s12">
+          <button type="button" class="btn btn-success" (click)="SaveRecord()">
+            Confirmar
+          </button>
+          &nbsp;<a
+            class="btn btn-warning orange"
+            routerLink="/solicitudes/solicitudes-list"
+            >Cancelar</a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</fieldset>
+<br/>

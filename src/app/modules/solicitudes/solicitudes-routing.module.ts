@@ -7,11 +7,11 @@ import { SolicitudListComponent } from './solicitud-list/solicitud-list.componen
 
 const routes: Routes = [
   {
-    path:"solicitud-creation",
+    path:"solicitud-creation/:inmuebleId",
     component: SolicitudCreationComponent
   },
   {
-    path:"solicitud-edition",
+    path:"solicitud-edition/:id",
     component: SolicitudEditionComponent
   },
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
     component: SolicitudListComponent
   },
   {
-    path:"remove-solicitud",
+    path:"remove-solicitud/:id",
     component: RemoveSolicitudComponent
   },
 ];

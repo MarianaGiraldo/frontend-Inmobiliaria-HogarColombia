@@ -69,7 +69,12 @@ export class InmuebleService {
   
 
   RemoveRecord(id: string): Observable<any> {
-    return this.http.delete<any>(`${this.url}/inmuebles/${id}`);
+    return this.http.delete<any>(`${this.url}/inmuebles/${id}`, 
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.tk}`
+      })
+    });
   }
 
 }
