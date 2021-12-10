@@ -1,8 +1,8 @@
 <br />
-<a routerLink="/parameters/inmueble-creation" class="btn btn-success mb-5">Agregar Inmueble</a>
+<a routerLink="/parameters/inmuebles-list" class="btn btn-success mb-5">Agregar solicitud</a>
 <br/><br/>
 <fieldset>
-    <legend>Listado de Inmuebles</legend>
+    <legend>Listado de Solicitudes</legend>
     <br/>
     <table>
         <thead>
@@ -33,12 +33,6 @@
                 <td>
                     {{r.estado}}
                 </td>
-                
-                <!-- <td>
-                    <ul>
-                        <li *ngFor="let c of r.categorias">{{c.nombre}}</li>
-                    </ul>
-                </td> -->
                 <td>
                     <a routerLink="/solicitudes/solicitud-edition/{{r.id}}" class="btn btn-warning orange">Editar</a>&nbsp;
                     <a routerLink="/solicitudes/remove-solicitud/{{r.id}}" class="btn btn-warning red">Eliminar</a>
