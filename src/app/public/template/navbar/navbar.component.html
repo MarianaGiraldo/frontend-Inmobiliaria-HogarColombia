@@ -15,7 +15,6 @@
     <ul class="right hide-on-med-and-down">
       <li *ngIf="activeSession"><a routerLink="/parameters/inmuebles-list">Inmuebles</a></li>
       <li *ngIf="activeSession"><a routerLink="/solicitudes/solicitudes-list">Solicitudes</a></li>
-      <li *ngIf="activeSession"><a routerLink="/asesores-list">Asesores</a></li>
       <li *ngIf="!activeSession"><a routerLink="/security/login">Login</a></li>
       <li *ngIf="activeSession"><a routerLink="/security/logout">Logout</a></li>
     </ul>
@@ -25,7 +24,6 @@
 <ul class="sidenav" id="mobile-demo">
   <li *ngIf="activeSession"><a routerLink="/parameters/inmuebles-list">Inmuebles</a></li>
     <li *ngIf="activeSession"><a routerLink="/solicitudes/solicitudes-list">Solicitudes</a></li>
-    <li *ngIf="activeSession"><a routerLink="/asesores-list">Asesores</a></li>
     <li *ngIf="!activeSession"><a routerLink="/security/login">Login</a></li>
     <li *ngIf="activeSession"><a routerLink="/security/logout">Logout</a></li>
 </ul>
