@@ -8,6 +8,7 @@ import { InmuebleListComponent } from './inmuebles/inmueble-list/inmueble-list.c
 import { RemoveInmuebleComponent } from './inmuebles/remove-inmueble/remove-inmueble.component';
 import { InmueblePhotosComponent } from './inmuebles/inmueble-photos/inmueble-photos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     InmuebleCreationComponent,
@@ -20,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ParametersRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class ParametersModule { }
