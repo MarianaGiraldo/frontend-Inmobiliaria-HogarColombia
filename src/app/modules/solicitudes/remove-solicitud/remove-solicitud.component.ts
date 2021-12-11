@@ -31,7 +31,7 @@ export class RemoveSolicitudComponent implements OnInit {
       next: (data: SolicitudModel) => {
         if (
           data.id &&
-          data.clienteId &&
+          data.usuarioId &&
           data.inmuebleId &&
           data.estado
         ) {

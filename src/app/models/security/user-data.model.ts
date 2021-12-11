@@ -4,4 +4,5 @@ export class UserDataModel{
     correo?: string;
     id_rol?: string;    ​​
     nombre?: string;
+    apellidos?: string;
 }

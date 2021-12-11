@@ -8,7 +8,7 @@
         <thead>
             <tr>
                 <th>
-                    Inmueble ID
+                    Dirección Inmueble
                 </th>
                 <th>
                     Cliente
@@ -24,10 +24,10 @@
         <tbody>
             <tr *ngFor="let r of recordList | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: totalAmount }">
                 <td>
-                    {{r.inmuebleId}}
+                    {{r.inmueble?.direccion + ", " + r.inmueble?.ciudad + " - " + r.inmueble?.departamento}}
                 </td>
                 <td>
-                    {{r.clienteId}}
+                    {{r.usuario?.nombre + " " + r.usuario?.apellidos}}
                 </td>
                 <td>
                     {{r.estado}}

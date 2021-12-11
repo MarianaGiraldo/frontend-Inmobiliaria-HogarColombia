@@ -11,6 +11,7 @@ import { LocalStorageService } from '../shared/local-storage.service';
 export class SolicitudService {
   url: string = ConfigurationData.BUSSINESS_MS_URL;
   tk: string = '';
+  filter: string = `?filter={"include":[{"relation": "inmueble"}, {"relation": "usuario"}]}`;
   constructor(
     private http: HttpClient,
     private localStorageService: LocalStorageService
@@ -19,7 +20,7 @@ export class SolicitudService {
   }
 
   GetRecordList(): Observable<SolicitudModel[]> {
-    return this.http.get<SolicitudModel[]>(`${this.url}/solicitudes`, {
+    return this.http.get<SolicitudModel[]>(`${this.url}/solicitudes${this.filter}`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.tk}`,
       }),
@@ -38,7 +39,7 @@ export class SolicitudService {
     return this.http.post<SolicitudModel>(
       `${this.url}/solicitudes`,
       {
-        clienteId: this.localStorageService.GetSessionInfo().usuario?.id,
+        usuarioId: this.localStorageService.GetSessionInfo().usuario?.id,
         inmuebleId: data.inmuebleId,
         estado: data.estado,
       },
@@ -54,7 +55,7 @@ export class SolicitudService {
     return this.http.put<SolicitudModel>(
       `${this.url}/solicitudes/${data.id}`,
       {
-        clienteId: this.localStorageService.GetSessionInfo().usuario?.id,
+        usuarioId: this.localStorageService.GetSessionInfo().usuario?.id,
         inmuebleId: data.inmuebleId,
         estado: data.estado,
       },

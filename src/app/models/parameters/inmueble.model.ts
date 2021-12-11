@@ -1,3 +1,5 @@
+import { PhotoModel } from "./photo.model";
+
 export class InmuebleModel{
     id?: string;
     asesorId?: string;
@@ -10,4 +12,5 @@ export class InmuebleModel{
     encargado?: string;
     encargadoContacto?: string;
     videoUrl?: string;
+    fotos? : PhotoModel[];
 }

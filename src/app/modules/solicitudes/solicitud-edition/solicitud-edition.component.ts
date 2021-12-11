@@ -56,8 +56,8 @@ export class SolicitudEditionComponent implements OnInit {
   SaveRecord(){
     let model = new SolicitudModel();
       model.id = this.id;
-      model.inmuebleId = this.datos.inmuebleId
-      model.clienteId = this.datos.clienteId;
+      model.inmueble = this.datos.inmueble
+      model.usuario = this.datos.usuario;
       model.estado = this.GetDF["estado"].value;
     this.service.EditRecord(model).subscribe({
       next: (_data: SolicitudModel) => {
