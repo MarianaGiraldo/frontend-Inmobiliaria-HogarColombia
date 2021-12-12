@@ -4,8 +4,8 @@ import { UserDataModel } from "./security/user-data.model";
 export class SolicitudModel{
     id?: string;
     inmueble?: InmuebleModel;
-    inmuebleId = this.inmueble?.id
+    inmuebleId?: string
     usuario?: UserDataModel;
-    usuarioId = this.usuario?.id
+    usuarioId?: string
     estado?: string;
 }
