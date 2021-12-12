@@ -1,1 +1,30 @@
-<h1>Bienvenido a la inmobiliaria Hogar Colombia</h1>
+<h2 class="homeTitle">Bienvenidos a Hogar Colombia - Inmobiliaria</h2>
+<p>Los siguientes, son los inmuebles ofertados, para ver más información o solicitarlos inicie sesión</p>
+<br/>
+<div class="row">
+    <div class="col s4" *ngFor="let i of inmuebleList">
+        <div class="card">
+            <div class="card-image">
+                <img class="mainPhoto" *ngIf="i.foto_principal ==''" src="/assets/images/vehicle/default_vehicle_photo.jpg">
+                <img class="mainPhoto" *ngIf="i.foto_principal !=''" src="{{url}}/archivos/1/{{i.foto_principal}}">
+                <span class="card-title">{{i.ciudad}}</span>
+            </div>
+            <div class="card-content">
+                <ul>
+                    <li><label>Departamento: {{i.departamento}}</label></li>
+                    <li><label>Ciudad: {{i.ciudad}}</label></li>
+                    <li><label>Dirección: {{i.direccion}}</label></li>
+                    <li><label>Valor: {{i.valor | currency}}</label></li>
+                    <li><label>Tipo de Inmueble: {{i.tipo}}</label></li>
+                    <li><label>Tipo de ferta: {{i.tipoOferta}}</label></li>
+                    <li><label>Encargado o dueño: {{i.encargado}}</label></li>
+                    <li><label>Contacto del Encargado: {{i.encargadoContacto}}</label></li>
+                    <li><label>URL del video: {{i.videoUrl}}</label></li>
+                </ul>
+            </div>
+            <div class="card-action">
+                <a routerLink="">Ver más...</a>
+            </div>
+        </div>
+    </div>
+</div>
