@@ -13,4 +13,5 @@ export class InmuebleModel{
     encargadoContacto?: string;
     videoUrl?: string;
     fotos? : PhotoModel[];
+    foto_principal?: string;
 }

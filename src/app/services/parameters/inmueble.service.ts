@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfigurationData } from 'src/app/config/ConfigurationData';
 import { InmuebleModel } from 'src/app/models/parameters/inmueble.model';
+import { UploadedFile } from 'src/app/models/parameters/uploaded-file.model';
 import { LocalStorageService } from '../shared/local-storage.service';
 
 @Injectable({
@@ -37,7 +38,8 @@ export class InmuebleService {
         tipoOferta: data.tipoOferta ,
         encargado: data.encargado,
         encargadoContacto: data.encargadoContacto,
-        videoUrl: data.videoUrl
+        videoUrl: data.videoUrl,
+        foto_principal: data.foto_principal
       }, 
       {
         headers: new HttpHeaders({
@@ -75,6 +77,18 @@ export class InmuebleService {
         Authorization: `Bearer ${this.tk}`
       })
     });
+  }
+
+
+  UploadMainPhoto(form: FormData): Observable<UploadedFile> {
+    return this.http.post<UploadedFile>(
+      `${this.url}/CargarImagenPrincipalInmueble`,
+      form,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.tk}`
+        })
+      });
   }
 
 }

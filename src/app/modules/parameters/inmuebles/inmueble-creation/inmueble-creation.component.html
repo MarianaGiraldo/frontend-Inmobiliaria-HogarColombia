@@ -3,8 +3,44 @@
   <legend>Creación de Inmueble</legend>
   <br />
   <div class="row">
+    <form [formGroup]="mainPhotoForm" class="col s12">
+      <div class="row">
+        <div class="col s12 center-align">
+          <img
+            *ngIf="!uploadedPhoto"
+            src="assets/images/inmueble/default_inmueble_photo.jpg"
+            class="inmueblePhoto center-align"
+          />
+          <img
+            *ngIf="uploadedPhoto"
+            src="{{url_server}}/archivos/1/{{uploadedFilename}}"
+            class="inmueblePhoto center-align"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align">
+          <input
+            class="btn orange"
+            type="file"
+            (change)="UploadPhoto($event)"
+            name="image"
+          />
+          &nbsp;<button
+            class="btn btn-success"
+            type="button"
+            (click)="SubmitFileToServer()"
+          >
+            Cargar Foto
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row">
     <form class="col s12" [formGroup]="dataForm">
-      
+      <input type="hidden" formControlName="foto_principal" />
       <div class="row">
         <div class="input-field col s6">
           <input
@@ -124,12 +160,7 @@
       <div class="row">
         <div class="col s6">
           <label for="tipo">Tipo de inmueble</label>
-          <select
-            class="browser-default validate"
-            formControlName="tipo"
-            name="tipo"
-            id="tipo"
-          >
+          <select class="validate" formControlName="tipo" name="tipo" id="tipo">
             <option value="" disabled selected>Seleccione el tipo</option>
             <option value="Casa">Casa</option>
             <option value="Apartamento">Apartamento</option>
@@ -151,7 +182,7 @@
         <div class="col s6">
           <label for="tipo">Tipo de oferta</label>
           <select
-            class="browser-default validate"
+            class="validate"
             formControlName="tipoOferta"
             name="tipoOferta"
             id="tipoOferta"
@@ -251,4 +282,4 @@
     </form>
   </div>
 </fieldset>
-<br/>
+<br />
